@@ -1,0 +1,18 @@
+ext.appVersion = [
+        versionCode: 1,
+        versionName: '1.0',
+]
+
+ext.sdk = [
+        compileSdkVersion: 30,
+        minSdkVersion    : 23,
+        targetSdkVersion : 30,
+]
+
+ext.appDetails = [
+        applicationId: "com.rasfar.koin.app"
+]
+
+ext.testRunner = [
+        espressoRunner: "com.rasfar.koin.app.EspressoTestRunner"
+]

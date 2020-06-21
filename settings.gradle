@@ -1,0 +1,4 @@
+include ':app'
+include ':weather_service'
+include ':network'
+rootProject.name = "weather_app_koin"

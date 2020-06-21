@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'koin'
+
+android {
+    compileSdkVersion sdk.compileSdkVersion
+
+    defaultConfig {
+        applicationId appDetails.applicationId
+        minSdkVersion sdk.minSdkVersion
+        targetSdkVersion sdk.targetSdkVersion
+
+        versionCode appVersion.versionCode
+        versionName appVersion.versionName
+
+        testInstrumentationRunner testRunner.espressoRunner
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":network")
+    implementation project(":weather_service")
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation libraries.koin
+    implementation libraries.koinExt
+    implementation libraries.koinAndroid
+    implementation libraries.kotlinLib
+    implementation libraries.appCompat
+    implementation libraries.androidMaterial
+    implementation libraries.retrofit
+    implementation libraries.retrofitGsonConverter
+    implementation libraries.rxKotlin
+    implementation libraries.rxAndroid
+
+    kapt compilers.koin
+
+    testImplementation unitTestLibraries.junit
+    testImplementation unitTestLibraries.mockito
+    testImplementation unitTestLibraries.mockitoInline
+    testImplementation unitTestLibraries.assertj
+
+    androidTestImplementation instrumentationTestLibraries.espressoCore
+    androidTestImplementation instrumentationTestLibraries.espressoContrib
+    androidTestImplementation instrumentationTestLibraries.espressoIntents
+    androidTestImplementation instrumentationTestLibraries.espressoIdling
+    androidTestImplementation instrumentationTestLibraries.rxIdler
+    androidTestImplementation instrumentationTestLibraries.okhttpMockWebServer
+    androidTestImplementation unitTestLibraries.junit
+}

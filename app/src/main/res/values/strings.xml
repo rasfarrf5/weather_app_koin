@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">weather_app_koin</string>
+
+    <string name="failed_message">Failed to download weather data</string>
+</resources>
