@@ -1,6 +1,6 @@
 ext.versions = [
         koin             : '2.1.6',
-        kotlin           : '1.3.72',
+        kotlin           : '1.4.0',
         appCompat        : '1.3.0-alpha01',
         androidAnnotation: '1.1.0',
         androidMaterial  : '1.2.0-beta01',
